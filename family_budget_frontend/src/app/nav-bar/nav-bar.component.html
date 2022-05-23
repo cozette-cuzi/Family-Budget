@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm navbar">
+    <div class="container">
+        <a class="navbar-brand" [routerLink]="'/'">
+            <img width=" 65px" src="/assets/logo.png" />
+        </a>
+
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+            &#9776;
+        </button>
+
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/budget'" (click)="isMenuCollapsed = true">Budget</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/about'" (click)="isMenuCollapsed = true">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
