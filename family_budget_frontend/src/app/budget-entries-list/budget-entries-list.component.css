@@ -1,0 +1,12 @@
+.budget-entry {
+    margin-top: 15px;
+    float: right;
+}
+.container {
+    max-width: 800px;
+}
+
+.badge{
+    font-size: 10px;
+    font-weight: normal;
+}

@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="display-5 my-3">New Budget Entry</h2>
+
+    <form action="" novalidate>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control is-invalid" id="title" placeholder="Title" required />
+            <div class="invalid-feedback">Please provide a title!</div>
+        </div>
+        <div class="form-group">
+            <label for="description">Amount</label>
+            <input type="text" class="form-control is-invalid" id="amount" placeholder="Amount" required />
+
+            <div class="invalid-feedback">Please provide numeric amount!</div>
+        </div>
+        <div class="form-group">
+            <label for="status">Category</label>
+            <select class="form-control" id="status" required>
+                <option value="INCOME">Income</option>
+                <option value="OUTCOME">Outcome</option>
+            </select>
+            <div class="invalid-feedback">Please provide a category!</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div> 

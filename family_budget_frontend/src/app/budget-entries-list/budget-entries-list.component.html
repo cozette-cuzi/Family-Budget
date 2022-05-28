@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <h2 class="display-5 my-3">Budget Entries</h2>
+
+        </div>
+        <div class="col-3">
+            <a type="button" routerLink="/new-budget-entry" class="budget-entry btn btn-outline-primary px-4 float-end">
+                Budget Entry
+            </a>
+
+        </div>
+    </div>
+    <div class="list-group">
+        <a *ngFor="let budget_entry of budget_entries" class="list-group-item list-group-item-action" [ngClass]="{'text-danger': budget_entry.category == 'OUTCOME', 
+            'text-success': budget_entry.category == 'INCOME'}">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <h5 class="mb-1 text-dark">{{budget_entry.title}}
+                            <span [ngClass]="{
+                                'badge-danger': budget_entry.category == 'OUTCOME', 
+            'badge-success': budget_entry.category == 'INCOME'
+        }" class="badge">
+                                {{budget_entry.category}}
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col float-end">
+                    <p *ngIf="budget_entry.category == 'INCOME'" class="mb-1 text-right">
+                        +{{budget_entry.amount}} $
+                    </p>
+                    <p *ngIf="budget_entry.category == 'OUTCOME'" class="mb-1 text-right">
+                        -{{budget_entry.amount}} $
+                    </p>
+                </div>
+            </div>
+
+
+        </a>
+    </div>
+</div>
