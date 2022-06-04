@@ -7,7 +7,7 @@ import { BudgetEntryService } from '../budget-entry.service';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  public balance : number = -1;
+  public balance : number = 0;
 
   constructor(
     private budgetEntryService: BudgetEntryService,

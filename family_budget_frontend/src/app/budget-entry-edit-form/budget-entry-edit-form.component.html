@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pt-3">
     <h2 class="display-5">{{ budgetEntry.id ? "Edit Budget Entry" : "New Budget Entry" }}</h2>
     <app-budget-entry-form [budgetEntry]="budgetEntry" (save)="handleSave($event)"></app-budget-entry-form>
 </div>

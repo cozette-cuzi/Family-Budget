@@ -37,7 +37,7 @@ export class BudgetEntryService {
   }
 
   public async getBalance(): Promise<number> {
-    return await lastValueFrom(this.http.get<number>('http://localhost:8000/api/balance', httpOptions));
+    return await lastValueFrom(this.http.get<number>(this.budgetEntryURL+ '/balance', httpOptions));
   }
 
 }

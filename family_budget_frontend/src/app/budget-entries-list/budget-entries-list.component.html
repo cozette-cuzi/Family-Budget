@@ -27,10 +27,10 @@
                         </h5>
                     </div>
                     <p *ngIf="budgetEntry.category == 'INCOME'" class="mb-1">
-                        +{{budgetEntry.amount}} $
+                        +{{budgetEntry.amount | currency}}
                     </p>
                     <p *ngIf="budgetEntry.category == 'OUTCOME'" class="mb-1">
-                        -{{budgetEntry.amount}} $
+                        -{{budgetEntry.amount | currency}}
                     </p>
                 </div>
                 <div class="col float-end">

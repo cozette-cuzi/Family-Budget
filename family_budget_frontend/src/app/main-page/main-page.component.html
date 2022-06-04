@@ -1,7 +1,19 @@
 <div class="jumbotron">
     <div class="container">
-        <h1 class="display-4">Family Budget</h1>
-        <p class="lead">Overall Balance is: {{ this.balance }} $</p>
-        <p><a class="btn btn-outline-primary" [routerLink]="'/new-budget-entry'" role="button">New Budget Entry</a></p>
+        <div class="row">
+            <div class="col-6">
+                <img class="image" src="/assets/Saving_money.svg" />
+            </div>
+            <div class="col-6 text-right">
+                <h1 class="display-4 text-primary">BALANCIO</h1>
+                <p class="lead display-5">To Keep your money tracked, and your dollars under control.</p>
+
+                <p class="lead display-5">Your Overall Balance is: {{ this.balance | currency }}</p>
+                <p><a class="btn btn-outline-primary" [routerLink]="'/new-budget-entry'" role="button">New Budget
+                        Entry</a></p>
+            </div>
+
+        </div>
+
     </div>
 </div>

@@ -1,3 +1,12 @@
 .container {
     max-width: 800px;
 }
+
+.ms-auto {
+    margin-left: auto !important;
+}
+
+.app-name {
+    margin-top: 40px;
+    display: inline;
+}

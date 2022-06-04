@@ -1,28 +1,29 @@
-<form [formGroup]="budgetEntryForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Title" required formControlName="title"
-            [class.is-invalid]="title.invalid && (title.dirty || title.touched)" [class.is-valid]="title.valid" />
-        <div class="invalid-feedback">Please provide a title!</div>
-    </div>
-    <div class="form-group">
-        <label for="amount">Amount</label>
-        <input class="form-control" id="amount" rows="5" required formControlName="amount"
-            [class.is-invalid]="amount.invalid && (amount.dirty || amount.touched)" [class.is-valid]="amount.valid"
-            type="number" placeholder="Amount"/>
-        <div class="invalid-feedback">Please provide a numeric amount!
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="category">Category</label>
-        <select class="form-control" id="category" required formControlName="category"
-            [class.is-invalid]="category.invalid && (category.dirty || category.touched)"
-            [class.is-valid]="category.valid">
-            <option value="INCOME">Income</option>
-            <option value="OUTCOME">Outcome</option>
-        </select>
-        <div class="invalid-feedback">Please provide a category!</div>
-    </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="budgetEntryForm.invalid">Submit</button>
-</form>
+    <form [formGroup]="budgetEntryForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Title" required formControlName="title"
+                [class.is-invalid]="title.invalid && (title.dirty || title.touched)" [class.is-valid]="title.valid" />
+            <div class="invalid-feedback">Please provide a title!</div>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input class="form-control" id="amount" rows="5" required formControlName="amount"
+                [class.is-invalid]="amount.invalid && (amount.dirty || amount.touched)" [class.is-valid]="amount.valid"
+                type="number" placeholder="Amount" />
+            <div class="invalid-feedback">Please provide a numeric amount!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" required formControlName="category"
+                [class.is-invalid]="category.invalid && (category.dirty || category.touched)"
+                [class.is-valid]="category.valid">
+                <option value="INCOME">Income</option>
+                <option value="OUTCOME">Outcome</option>
+            </select>
+            <div class="invalid-feedback">Please provide a category!</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="budgetEntryForm.invalid">Submit</button>
+    </form>

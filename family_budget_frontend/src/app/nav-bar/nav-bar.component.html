@@ -2,6 +2,7 @@
     <div class="container">
         <a class="navbar-brand" [routerLink]="'/'">
             <img width=" 65px" src="/assets/logo.png" />
+            <p class="app-name">BALANCIO</p>
         </a>
 
         <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
@@ -9,9 +10,10 @@
         </button>
 
         <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'/budget-entries-list'" (click)="isMenuCollapsed = true">Budget Entries</a>
+                    <a class="nav-link" [routerLink]="'/budget-entries-list'" (click)="isMenuCollapsed = true">Budget
+                        Entries</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="'/about'" (click)="isMenuCollapsed = true">About</a>
