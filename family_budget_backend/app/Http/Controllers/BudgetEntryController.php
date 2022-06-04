@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BudgetEntryRequest;
 use App\Models\BudgetEntry;
-use Illuminate\Http\Request;
 
 class BudgetEntryController extends Controller
 {
@@ -13,30 +12,37 @@ class BudgetEntryController extends Controller
         $data = $request->validated();
         $entry = BudgetEntry::create($data);
 
-        return $this->response('success', $entry);
+        return $entry;
     }
 
     public function index()
     {
         $data = BudgetEntry::all();
-        return $this->response('success', $data);
+        return $data;
     }
 
     public function show(BudgetEntry $budgetEntry)
     {
-        return $this->response('success', $budgetEntry);
+        return $budgetEntry;
     }
 
     public function update(BudgetEntry $budgetEntry, BudgetEntryRequest $request)
     {
         $data = $request->validated();
         $budgetEntry->update($data);
-        return $this->response('success');
+        return $budgetEntry;
     }
 
     public function destroy(BudgetEntry $budgetEntry)
     {
         $budgetEntry->delete();
-        return $this->response('success');
+        return 'success';
+    }
+
+    public function balance()
+    {
+        $outcome =  BudgetEntry::all()->where('category', 'OUTCOME')->sum('amount');
+        $income =  BudgetEntry::all()->where('category', 'INCOME')->sum('amount');
+        return $income - $outcome;
     }
 }

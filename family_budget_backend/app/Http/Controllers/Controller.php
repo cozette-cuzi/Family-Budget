@@ -11,9 +11,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function response($message, $data = null, $code = 200)
+    public function response($data = null, $code = 200)
     {
-        return response()->json(['message' => $message, 'data' => $data], $code)
+        return response()->json([$data], $code)
             ->setEncodingOptions(\JSON_NUMERIC_CHECK);
     }
 }
