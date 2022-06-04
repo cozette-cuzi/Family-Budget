@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BudgetEntry } from '../budget-entry';
+import { BudgetEntryService } from '../budget-entry.service';
 
 @Component({
   selector: 'app-budget-entries-list',
@@ -8,14 +9,20 @@ import { BudgetEntry } from '../budget-entry';
 })
 export class BudgetEntriesListComponent implements OnInit {
 
-  public budget_entries : BudgetEntry[] = [
-    {id: 1, title: 'salary', amount: 2000, category: 'INCOME'},
-    {id: 2, title: 'shopping', amount: 200, category: 'OUTCOME'},
-    {id: 3, title: 'grosery', amount: 150, category: 'OUTCOME'},
-  ];
-  constructor() { }
+  budgetEntries: BudgetEntry[] = [];
+  selectedBudgetEntry: BudgetEntry | null = null;
 
-  ngOnInit(): void {
+  constructor(private budgetEntryService: BudgetEntryService) {}
+
+  async ngOnInit(): Promise<void> {
+    this.budgetEntries = await this.budgetEntryService.getBudgetEntries();
+    console.log(this.budgetEntries);
+  }
+
+
+  handleSave(budgetEntry: any): void {
+    Object.assign(this.selectedBudgetEntry, budgetEntry);
+    this.selectedBudgetEntry = null;
   }
 
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { BudgetEntriesListComponent } from './budget-entries-list/budget-entries-list.component';
+import { BudgetEntryEditFormComponent } from './budget-entry-edit-form/budget-entry-edit-form.component';
 import { BudgetEntryFormComponent } from './budget-entry-form/budget-entry-form.component';
 import { MainPageComponent } from './main-page/main-page.component';
 
@@ -15,11 +17,15 @@ const routes: Routes = [
   },
   {
     path: "new-budget-entry",
-    component: BudgetEntryFormComponent
+    component: BudgetEntryEditFormComponent
+  },
+  {
+    path: "budget-entry/:id/edit",
+    component: BudgetEntryEditFormComponent
   },
   {
     path: "about",
-    component: MainPageComponent
+    component: AboutComponent
   },
   
 ];

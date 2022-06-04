@@ -12,32 +12,33 @@
         </div>
     </div>
     <div class="list-group">
-        <a *ngFor="let budget_entry of budget_entries" class="list-group-item list-group-item-action" [ngClass]="{'text-danger': budget_entry.category == 'OUTCOME', 
-            'text-success': budget_entry.category == 'INCOME'}">
+        <a *ngFor="let budgetEntry of budgetEntries" class="list-group-item list-group-item-action" [ngClass]="{'text-danger': budgetEntry.category == 'OUTCOME', 
+            'text-success': budgetEntry.category == 'INCOME'}">
             <div class="row">
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between align-items-center">
-                        <h5 class="mb-1 text-dark">{{budget_entry.title}}
+                        <h5 class="mb-1 text-dark">{{budgetEntry.title}}
                             <span [ngClass]="{
-                                'badge-danger': budget_entry.category == 'OUTCOME', 
-            'badge-success': budget_entry.category == 'INCOME'
+                                'badge-danger': budgetEntry.category == 'OUTCOME', 
+            'badge-success': budgetEntry.category == 'INCOME'
         }" class="badge">
-                                {{budget_entry.category}}
+                                {{budgetEntry.category}}
                             </span>
                         </h5>
                     </div>
+                    <p *ngIf="budgetEntry.category == 'INCOME'" class="mb-1">
+                        +{{budgetEntry.amount}} $
+                    </p>
+                    <p *ngIf="budgetEntry.category == 'OUTCOME'" class="mb-1">
+                        -{{budgetEntry.amount}} $
+                    </p>
                 </div>
                 <div class="col float-end">
-                    <p *ngIf="budget_entry.category == 'INCOME'" class="mb-1 text-right">
-                        +{{budget_entry.amount}} $
-                    </p>
-                    <p *ngIf="budget_entry.category == 'OUTCOME'" class="mb-1 text-right">
-                        -{{budget_entry.amount}} $
-                    </p>
+                    <a type="div" [routerLink]="['/budget-entry', budgetEntry.id, 'edit']">
+                        <bi name="pencil" class="small float-end" style="color: orange;"></bi>
+                    </a>
                 </div>
             </div>
-
-
         </a>
     </div>
 </div>

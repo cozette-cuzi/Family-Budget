@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BudgetEntryService } from '../budget-entry.service';
 
 @Component({
   selector: 'app-main-page',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
+  public balance : number = -1;
 
-  constructor() { }
+  constructor(
+    private budgetEntryService: BudgetEntryService,
+  ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.balance = await this.budgetEntryService.getBalance();
+    console.log(this.balance);
   }
 
 }

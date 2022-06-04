@@ -1,6 +1,6 @@
 export class BudgetEntry {
-    id = 0;
-    title = '';
-    amount = 0;
+    id: number;
+    title = "";
+    amount = "";
     category = 'INCOME'
 }
