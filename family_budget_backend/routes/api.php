@@ -19,7 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('budget-entry/balance', [BudgetEntryController::class, 'balance']);
+
 
 Route::apiResource('budget-entry', BudgetEntryController::class);
 
-Route::get('balance', [BudgetEntryController::class, 'balance']);
